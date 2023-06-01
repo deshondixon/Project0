@@ -2,56 +2,49 @@ package com.revature.models;
 
 public class Employee {
 
-    //in our model classes, we need to directly reflect our DB tables
-
-    //we need a variable for every DB column
     private int employee_id;
     private String first_name;
     private String last_name;
 
-    /*Employee objects in Java will contain entire Role objects instead of just an int foreign key
-    an int FK is less useful to us than an entire Role object. Role objects have all the data relevant to Role.*/
+    /*Employee objects in Java will contain entire Role objects instead of just an int foreign key (FK)
+     an int FK is less useful to us than an entire Role object. Role objects have all the data relevant to Role.*/
     private Role role;
 
     /*We have this variable to make inserts easier (when we insert a new Employee)
-    When inserting a new Employee, we can just include the FK (the int) instead of an entire Role object*/
+     When inserting a new Employee, we can just include the FK (the int) instead of an entire Role object*/
     private int role_id_fk;
 
+    //we'll have different constructors using one or the other foreign key variable, used for different purposes
 
-    //boilerplate code below----------------------
+    //boilerplate code--------------------------
 
     //no args
     public Employee() {
     }
 
-    //all args
-    public Employee(int employee_id, String first_name, String last_name) {
-        this.employee_id = employee_id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-    }
-
-    //all args with role
+    //all args (with Role object)
     public Employee(int employee_id, String first_name, String last_name, Role role) {
         this.employee_id = employee_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
     }
-    //all args minus id with role
+
+    //all args minus id (with Role object)
     public Employee(String first_name, String last_name, Role role) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
     }
 
-    //all args minus employee id with role_id_fk
+    //all args minus id (with role_id_fk int) ***THIS WILL ONLY BE USED FOR INSERTS
     public Employee(String first_name, String last_name, int role_id_fk) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.role_id_fk = role_id_fk;
     }
 
+    //getters and setters
     public int getEmployee_id() {
         return employee_id;
     }
@@ -91,8 +84,8 @@ public class Employee {
     public void setRole_id_fk(int role_id_fk) {
         this.role_id_fk = role_id_fk;
     }
-    //toString() lets us print out our objects in String form (instead of memory address)
 
+    //toString() so that we can print out our Employee objects
     @Override
     public String toString() {
         return "Employee{" +
