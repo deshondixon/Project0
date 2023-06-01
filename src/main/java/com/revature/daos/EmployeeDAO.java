@@ -22,7 +22,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
         } catch(SQLException e) {
             System.out.println("Insert employee failed!");
-            e.printStackTrace();
+            e.printStackTrace(); //tells the user what exactly went wrong
         }
         return null;
     }
