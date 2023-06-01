@@ -10,6 +10,11 @@ import java.util.ArrayList;
 //DAO methods are long. Imagine we have 20 DAO methods. An Interface is a quick way to see what methods we have.
 public interface EmployeeDAOInterface {
 
+    //A method to SELECT all employees
     ArrayList<Employee> getAllEmployees();
 
+    //A method to INSERT an employee
+    Employee
+
+    //A method to DELETE an employee
 }
