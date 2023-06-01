@@ -76,13 +76,31 @@ public class Employee {
         this.last_name = last_name;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public int getRole_id_fk() {
+        return role_id_fk;
+    }
+
+    public void setRole_id_fk(int role_id_fk) {
+        this.role_id_fk = role_id_fk;
+    }
     //toString() lets us print out our objects in String form (instead of memory address)
+
     @Override
     public String toString() {
         return "Employee{" +
                 "employee_id=" + employee_id +
                 ", first_name='" + first_name + '\'' +
-                ", last_name=" + last_name +
+                ", last_name='" + last_name + '\'' +
+                ", role=" + role +
+                ", role_id_fk=" + role_id_fk +
                 '}';
     }
 }
