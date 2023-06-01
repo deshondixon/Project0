@@ -21,6 +21,7 @@ public class Launcher {
 
         RoleDAO roleDAO = new RoleDAO();
 
+        System.out.println(roleDAO.getRoleByID(2));
 
     }
 }
