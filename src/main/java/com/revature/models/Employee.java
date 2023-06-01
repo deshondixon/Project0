@@ -31,11 +31,25 @@ public class Employee {
         this.last_name = last_name;
     }
 
-    //all args minus id - the id is serial, so it's generated automatically
-    //if we were to create a new Role, we wouldn't have to worry about including the primary key
-    public Employee(String first_name, String last_name) {
+    //all args with role
+    public Employee(int employee_id, String first_name, String last_name, Role role) {
+        this.employee_id = employee_id;
         this.first_name = first_name;
         this.last_name = last_name;
+        this.role = role;
+    }
+    //all args minus id with role
+    public Employee(String first_name, String last_name, Role role) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role = role;
+    }
+
+    //all args minus employee id with role_id_fk
+    public Employee(String first_name, String last_name, int role_id_fk) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role_id_fk = role_id_fk;
     }
 
     public int getEmployee_id() {
