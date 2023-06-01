@@ -57,6 +57,7 @@ public class RoleDAO implements RoleDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, salary);
+            ps.setString(2, title);
 
         } catch(SQLException e){
             System.out.println("Update Failed");
