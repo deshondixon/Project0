@@ -9,7 +9,12 @@ public class Employee {
     private String first_name;
     private String last_name;
 
+    /*Employee objects in Java will contain entire Role objects instead of just an int foreign key
+    an int FK is less useful to us than an entire Role object. Role objects have all the data relevant to Role.*/
     private Role role;
+
+    /*We have this variable to make inserts easier (when we insert a new Employee)
+    When inserting a new Employee, we can just include the FK (the int) instead of an entire Role object*/
     private int role_id_fk;
 
 
