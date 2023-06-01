@@ -14,7 +14,7 @@ public interface EmployeeDAOInterface {
     ArrayList<Employee> getAllEmployees();
 
     //A method to INSERT an employee
-    Employee
+    Employee insertEmployee();
 
     //A method to DELETE an employee
 }
