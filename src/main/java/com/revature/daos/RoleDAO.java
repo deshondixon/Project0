@@ -21,6 +21,8 @@ public class RoleDAO implements RoleDAOInterface {
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
+            ps.setInt();
+
         } catch (SQLException e) {
             System.out.println("error getting Role");
             e.printStackTrace();
