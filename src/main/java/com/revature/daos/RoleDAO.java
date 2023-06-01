@@ -30,6 +30,8 @@ public class RoleDAO implements RoleDAOInterface {
 
             Role role = new Role(
                     rs.getInt("role_id"),
+                    rs.getString("role_title"),
+                    rs.getInt("role_salary")
             );
 
         } catch (SQLException e) {
