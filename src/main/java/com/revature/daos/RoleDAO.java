@@ -5,6 +5,7 @@ import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RoleDAO implements RoleDAOInterface {
@@ -22,6 +23,7 @@ public class RoleDAO implements RoleDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
 
         } catch (SQLException e) {
             System.out.println("error getting Role");
