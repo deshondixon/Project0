@@ -12,6 +12,10 @@ public class RoleDAO implements RoleDAOInterface {
     public Role getRoleByID(int id) {
 
         try (Connection conn = ConnectionUtil.getConnection()) {
+
+            /*We need a String that holds the SQL command we want to run on the DB.
+            This String has a wildcard/parameter/variable for the role_id (the ?)
+            We have to take the user-inputted role id and put it into this wildcard*/
             String sql = "SELECT * FROM roles WHERE role_id = ?";
 
         } catch (SQLException e) {
