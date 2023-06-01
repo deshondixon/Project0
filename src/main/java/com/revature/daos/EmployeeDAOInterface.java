@@ -12,9 +12,12 @@ public interface EmployeeDAOInterface {
 
     //A method to SELECT all employees
     ArrayList<Employee> getAllEmployees();
+    /*Why an ArrayList?
+    Get all will return multiple employees
+    So we need some kind of COLLECTION that can store multiple Employee objects*/
 
     //A method to INSERT an employee
-    Employee insertEmployee();
+    Employee insertEmployee(Employee emp);
 
     //A method to DELETE an employee
 }
