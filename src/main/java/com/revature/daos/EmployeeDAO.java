@@ -1,7 +1,10 @@
 package com.revature.daos;
 
 import com.revature.models.Employee;
+import com.revature.utils.ConnectionUtil;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeDAO implements EmployeeDAOInterface {
@@ -12,6 +15,15 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
     @Override
     public Employee insertEmployee(Employee emp) {
+
+        try(Connection conn = ConnectionUtil.getConnection()) {
+
+
+
+        } catch(SQLException e) {
+            System.out.println("Insert employee failed!");
+            e.printStackTrace();
+        }
         return null;
     }
 }
