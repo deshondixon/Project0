@@ -23,6 +23,9 @@ public class RoleDAO implements RoleDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setInt(1, id);
+
+            /*Here, we are execute the fully prepared SQL command that has been stored in the PreparedStatement.
+            The results of the Query will be stored in a ResultSet object.*/
             ResultSet rs = ps.executeQuery();
 
         } catch (SQLException e) {
