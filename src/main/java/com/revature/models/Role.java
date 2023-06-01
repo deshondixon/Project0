@@ -22,7 +22,7 @@ public class Role {
         this.role_salary = role_salary;
     }
 
-    //all args minus id - the Id is serial, so it's generated automatically
+    //all args minus id - the id is serial, so it's generated automatically
     //if we were to create a new Role, we wouldn't have to worry about including the primary key
     public Role(String role_title, int role_salary) {
         this.role_title = role_title;
