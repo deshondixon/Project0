@@ -46,5 +46,10 @@ public class RoleDAO implements RoleDAOInterface {
         }
         return null;
     }
+
+    @Override
+    public boolean updateRoleSalary(int salary, String title) {
+        return false;
+    }
 }
 
