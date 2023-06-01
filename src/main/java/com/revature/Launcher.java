@@ -9,9 +9,9 @@ public class Launcher {
     public static void main(String[] args) {
 
         /*This is a try-with-resources block
- A resource (in this case, a DB connection) is opened within the parenthesis
- Another benefit is that the resource will close for us when the block completes
- This is helpful for code cleanup and preventing memory leaks*/
+        A resource (in this case, a DB connection) is opened within the parenthesis
+        Another benefit is that the resource will close for us when the block completes,
+        This is helpful for code cleanup and preventing memory leaks*/
         try (Connection conn = ConnectionUtil.getConnection()) {
             System.out.println("Connection Successful");
         } catch (SQLException e) {
