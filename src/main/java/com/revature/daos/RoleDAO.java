@@ -28,6 +28,10 @@ public class RoleDAO implements RoleDAOInterface {
             The results of the Query will be stored in a ResultSet object.*/
             ResultSet rs = ps.executeQuery();
 
+            Role role = new Role(
+                    rs.getInt("role_id"),
+            );
+
         } catch (SQLException e) {
             System.out.println("error getting Role");
             e.printStackTrace();
