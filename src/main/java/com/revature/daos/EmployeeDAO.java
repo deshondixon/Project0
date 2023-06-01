@@ -18,7 +18,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
         try(Connection conn = ConnectionUtil.getConnection()) {
 
-
+            String sql = "INSERT INTO employees (first_name, last_name, role_id_fk)";
 
         } catch(SQLException e) {
             System.out.println("Insert employee failed!");
