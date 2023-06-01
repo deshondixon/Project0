@@ -6,10 +6,11 @@ public class Employee {
 
     //we need a variable for every DB column
     private int employee_id;
-
     private String first_name;
-
     private String last_name;
+
+    private Role role;
+    private int role_id_fk;
 
 
     //boilerplate code below----------------------
