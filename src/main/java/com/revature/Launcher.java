@@ -21,7 +21,10 @@ public class Launcher {
 
         RoleDAO roleDAO = new RoleDAO();
 
-        System.out.println(roleDAO.getRoleByID(3));
+        System.out.println(roleDAO.getRoleByID(2));
+
+        System.out.println(roleDAO.updateRoleSalary(500000, "Manager"));
+        System.out.println(roleDAO.getRoleByID(1));
 
     }
 }
