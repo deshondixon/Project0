@@ -29,6 +29,8 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             ps.executeUpdate();
 
+            return emp;
+
         } catch(SQLException e) {
             System.out.println("Insert employee failed!");
             e.printStackTrace(); //tells the user what exactly went wrong
