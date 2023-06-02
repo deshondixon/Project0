@@ -23,6 +23,9 @@ public class EmployeeDAO implements EmployeeDAOInterface {
             while(rs.next()){
                 Employee employee = new Employee(
                         rs.getInt("employee_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        null
                 );
             }
 
