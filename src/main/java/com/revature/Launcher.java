@@ -34,5 +34,7 @@ public class Launcher {
 
         System.out.println(eDAO.insertEmployee(deshon));
 
+        System.out.println(eDAO.getAllEmployees());
+
     }
 }

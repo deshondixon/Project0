@@ -36,6 +36,8 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             }
 
+            return employeeList;
+
         } catch (SQLException e){
             System.out.println("Failed to get all employees!");
             e.printStackTrace(); //tells the user what exactly went wrong
