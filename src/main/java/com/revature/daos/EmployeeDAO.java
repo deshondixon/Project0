@@ -10,6 +10,8 @@ public class EmployeeDAO implements EmployeeDAOInterface {
     @Override
     public ArrayList<Employee> getAllEmployees() {
 
+
+
         try(Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "SELECT * FROM employees";
@@ -20,13 +22,17 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             ArrayList<Employee> employeeList = new ArrayList<>();
 
+            RoleDAO rDAO = new RoleDAO();
+
             while(rs.next()){
                 Employee employee = new Employee(
                         rs.getInt("employee_id"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
-                        null
+                        rDAO.getRoleByID(rs.getInt("role_id_fk"))
                 );
+
+
             }
 
         } catch (SQLException e){
