@@ -12,7 +12,14 @@ public class EmployeeDAO implements EmployeeDAOInterface {
     @Override
     public ArrayList<Employee> getAllEmployees() {
 
+        try(Connection conn = ConnectionUtil.getConnection()) {
 
+
+
+        } catch (SQLException e){
+            System.out.println("Failed to get all employees!");
+            e.printStackTrace(); //tells the user what exactly went wrong
+        }
 
         return null;
     }
