@@ -1,6 +1,7 @@
 package com.revature;
 
 import com.revature.daos.RoleDAO;
+import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
@@ -26,7 +27,9 @@ public class Launcher {
         System.out.println(roleDAO.updateRoleSalary(500000, "Manager"));
         System.out.println(roleDAO.getRoleByID(1));
 
+        Employee deshon = new Employee("DeShon","Dixon", 3);
 
+        System.out.println(deshon);
 
     }
 }
