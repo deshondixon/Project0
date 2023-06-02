@@ -32,6 +32,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
                         rDAO.getRoleByID(rs.getInt("role_id_fk"))
                 );
 
+                employeeList.add(employee);
 
             }
 
