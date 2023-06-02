@@ -3,10 +3,7 @@ package com.revature.daos;
 import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class EmployeeDAO implements EmployeeDAOInterface {
