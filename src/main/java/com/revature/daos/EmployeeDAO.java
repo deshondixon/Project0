@@ -11,8 +11,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
     public ArrayList<Employee> getAllEmployees() {
 
 
-
-        try(Connection conn = ConnectionUtil.getConnection()) {
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "SELECT * FROM employees";
 
@@ -24,7 +23,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             RoleDAO rDAO = new RoleDAO();
 
-            while(rs.next()){
+            while (rs.next()) {
                 Employee employee = new Employee(
                         rs.getInt("employee_id"),
                         rs.getString("first_name"),
@@ -38,7 +37,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             return employeeList;
 
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Failed to get all employees!");
             e.printStackTrace(); //tells the user what exactly went wrong
         }
@@ -49,7 +48,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
     @Override
     public Employee insertEmployee(Employee emp) {
 
-        try(Connection conn = ConnectionUtil.getConnection()) {
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "INSERT INTO employees (first_name, last_name, role_id_fk) VALUES (?, ?, ?)";
 
@@ -63,10 +62,32 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             return emp;
 
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Insert employee failed!");
             e.printStackTrace(); //tells the user what exactly went wrong
         }
         return null;
     }
+
+    @Override
+    public boolean deleteEmployee(int id) {
+        try (Connection conn = ConnectionUtil.getConnection()) {
+
+            String sql = "DELETE FROM employees WHERE employee_id = ?"; // Corrected SQL query
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setInt(1, id); // Corrected index
+
+            int rowsDeleted = ps.executeUpdate();
+
+            return rowsDeleted > 0; // return true if one or more rows were deleted
+
+        } catch (SQLException e) {
+            System.out.println("Delete employee failed!");
+            e.printStackTrace(); // tells the user what exactly went wrong
+        }
+        return false; // return false if deletion failed
+    }
+
+
 }

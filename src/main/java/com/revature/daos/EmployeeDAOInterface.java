@@ -20,4 +20,5 @@ public interface EmployeeDAOInterface {
     Employee insertEmployee(Employee emp);
 
     //A method to DELETE an employee
+    boolean deleteEmployee(int id);
 }

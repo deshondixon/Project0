@@ -31,15 +31,18 @@ public class Launcher {
 
         EmployeeDAO eDAO = new EmployeeDAO();
 
-        Employee deshon = new Employee("DeShon","Dixon", 3);
+//        Employee deshon = new Employee("DeShon", "Dixon", 3);
+//
+//        System.out.println(eDAO.insertEmployee(deshon));
+//
+//        ArrayList<Employee> employeeList = eDAO.getAllEmployees();
+//
+//        for (Employee e : employeeList) {
+//            System.out.println(e);
+//        }
 
-        System.out.println(eDAO.insertEmployee(deshon));
+        System.out.println(eDAO.deleteEmployee(11));
 
-        ArrayList<Employee> employeeList = eDAO.getAllEmployees();
-
-        for(Employee e: employeeList){
-            System.out.println(e);
-        }
 
     }
 }
