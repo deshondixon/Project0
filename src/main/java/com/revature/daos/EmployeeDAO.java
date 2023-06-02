@@ -5,6 +5,7 @@ import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,7 +15,11 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
         try(Connection conn = ConnectionUtil.getConnection()) {
 
+            String sql = "SELECT * FROM employees";
 
+            Statement s = conn.createStatement();
+
+            ResultSet rs = s.executeQuery(sql);
 
         } catch (SQLException e){
             System.out.println("Failed to get all employees!");
