@@ -24,6 +24,7 @@ public class EmployeeDAO implements EmployeeDAOInterface {
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, emp.getFirst_name());
+            ps.setString(1, emp.getLast_name());
 
         } catch(SQLException e) {
             System.out.println("Insert employee failed!");
