@@ -25,6 +25,9 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             ps.setString(1, emp.getFirst_name());
             ps.setString(2, emp.getLast_name());
+            ps.setInt(3, emp.getRole_id_fk());
+
+            ps.executeUpdate();
 
         } catch(SQLException e) {
             System.out.println("Insert employee failed!");
