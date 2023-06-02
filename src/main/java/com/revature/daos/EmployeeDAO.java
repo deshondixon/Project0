@@ -18,6 +18,8 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             ResultSet rs = s.executeQuery(sql);
 
+            ArrayList<Employee> employeeList = new ArrayList<>();
+
         } catch (SQLException e){
             System.out.println("Failed to get all employees!");
             e.printStackTrace(); //tells the user what exactly went wrong
