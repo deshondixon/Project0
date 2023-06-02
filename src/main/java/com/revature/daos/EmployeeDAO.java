@@ -20,6 +20,12 @@ public class EmployeeDAO implements EmployeeDAOInterface {
 
             ArrayList<Employee> employeeList = new ArrayList<>();
 
+            while(rs.next()){
+                Employee employee = new Employee(
+                        rs.getInt("employee_id"),
+                );
+            }
+
         } catch (SQLException e){
             System.out.println("Failed to get all employees!");
             e.printStackTrace(); //tells the user what exactly went wrong
