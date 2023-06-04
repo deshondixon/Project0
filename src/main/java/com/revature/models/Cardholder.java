@@ -6,8 +6,21 @@ public class Cardholder {
     private String firstName;
     private String lastName;
 
+    //---boilerplate---
+
+    //no args
+    public Cardholder() {
+    }
+
+    //all args
     public Cardholder(int cardholder_id, String firstName, String lastName) {
         this.cardholder_id = cardholder_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    //all args no id
+    public Cardholder(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }

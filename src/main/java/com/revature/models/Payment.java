@@ -2,16 +2,57 @@ package com.revature.models;
 
 public class Payment {
 
+    private Cardholder cardholder;
+
     private int payment_ID;
     private String bill;
     private String dueDate;
     private int cardholder_id_fk;
 
+
+    //---boilerplate---
+
+    //no args
+    public Payment() {
+    }
+
+    //all args
+    public Payment(Cardholder cardholder, int payment_ID, String bill, String dueDate, int cardholder_id_fk) {
+        this.cardholder = cardholder;
+        this.payment_ID = payment_ID;
+        this.bill = bill;
+        this.dueDate = dueDate;
+        this.cardholder_id_fk = cardholder_id_fk;
+    }
+
+    //all args minus id
+    public Payment(Cardholder cardholder, String bill, String dueDate) {
+        this.cardholder = cardholder;
+        this.bill = bill;
+        this.dueDate = dueDate;
+    }
+
+    //all args minus id w fk_id
+    public Payment(String bill, String dueDate, int cardholder_id_fk) {
+        this.bill = bill;
+        this.dueDate = dueDate;
+        this.cardholder_id_fk = cardholder_id_fk;
+    }
+
+    //all args minus cardholder
     public Payment(int payment_ID, String bill, String dueDate, int cardholder_id_fk) {
         this.payment_ID = payment_ID;
         this.bill = bill;
         this.dueDate = dueDate;
         this.cardholder_id_fk = cardholder_id_fk;
+    }
+
+    public Cardholder getCardholder() {
+        return cardholder;
+    }
+
+    public void setCardholder(Cardholder cardholder) {
+        this.cardholder = cardholder;
     }
 
     public int getPayment_ID() {
@@ -49,7 +90,8 @@ public class Payment {
     @Override
     public String toString() {
         return "Payment{" +
-                "payment_ID=" + payment_ID +
+                "cardholder=" + cardholder +
+                ", payment_ID=" + payment_ID +
                 ", bill='" + bill + '\'' +
                 ", dueDate='" + dueDate + '\'' +
                 ", cardholder_id_fk=" + cardholder_id_fk +
