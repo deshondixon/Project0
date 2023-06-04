@@ -12,5 +12,5 @@ public interface PaymentDAOInterface {
     Payment insertPayment(Payment pay);
 
     //UPDATE
-//  boolean updatePayment(String bill, String due_date);
+    boolean updatePayment(String bill, String due_date);
 }
