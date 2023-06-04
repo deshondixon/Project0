@@ -22,11 +22,17 @@ public class Launcher {
 
         //SELECT
         CardholderDAO cDAO = new CardholderDAO();
-
         System.out.println(cDAO.getCardholderById(3));
 
+        //INSERT CARDHOLDER
+        Cardholder deshon = new Cardholder(5,"DeShon", "Dixon");
+        Cardholder nicole = new Cardholder(6,"Nicole", "Smith");
+        System.out.println(cDAO.insertCardholder(deshon));
+        System.out.println(cDAO.insertCardholder(nicole));
+
         //UPDATE
-//        System.out.println(CDAO.updateRoleSalary(500000, "Manager"));
-//        System.out.println(rDAO.getRoleById(1)); //checking if the Manager salary was updated
+//        System.out.println(cDAO.updateRoleSalary(500000, "Manager"));
+//        System.out.println(cDAO.getRoleById(1)); //checking if the Manager salary was updated
+
     }
 }

@@ -32,6 +32,30 @@ public class CardholderDAO implements CardholderDAOInterface{
         return null;
     }
 
+
+    //INSERT
+    @Override
+    public Cardholder insertCardholder(Cardholder ch) {
+
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+            String sql = "INSERT INTO cardholder (first_name, last_name) VALUES (?, ?)";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, ch.getFirstName());
+            ps.setString(2, ch.getLastName());
+
+            ps.executeUpdate();
+
+            return ch;
+
+        } catch(SQLException e){
+            System.out.println("Insert cardholder failed!");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     //UPDATE
 
 }
