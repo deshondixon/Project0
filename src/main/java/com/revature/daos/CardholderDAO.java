@@ -13,14 +13,16 @@ public class CardholderDAO implements CardholderDAOInterface{
         try(Connection conn = ConnectionUtil.getConnection()){
             String sql = "SELECT * FROM cardholder WHERE cardholder_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
+
             ps.setInt(1, id);
+
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
                 return new Cardholder(
                         rs.getInt("cardholder_id"),
-                        rs.getString("cardholder_firstName"),
-                        rs.getString("cardholder_lastName")
+                        rs.getString("first_name"),
+                        rs.getString("last_name")
                 );
             }
         } catch(SQLException e){
