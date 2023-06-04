@@ -1,13 +1,9 @@
 package com.revature;
 
-import com.revature.daos.EmployeeDAO;
-import com.revature.daos.RoleDAO;
-import com.revature.models.Employee;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Launcher {
     public static void main(String[] args) {
