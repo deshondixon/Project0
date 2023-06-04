@@ -20,10 +20,22 @@ public class Launcher {
         }
 
 
-        //-------- DAO ----------
+        //------------------------------- DAO ---------------------------
 
-        //SELECT CARDHOLDER
-        CardholderDAO cDAO = new CardholderDAO();
+        //-------- CARDHOLDER ----------
+        System.out.println("-------- CARDHOLDER ----------");
+
+
+//      CardholderDAO cDAO = new CardholderDAO();
+
+        //GET All CARDHOLDERS
+//        ArrayList<Cardholder> cardholderList = cDAO.getAllCardholder();
+//
+//        for(Cardholder c : cardholderList){
+//            System.out.println(c);
+//        }
+
+        //SELECT CARDHOLDER BY ID
 //        System.out.println(cDAO.getCardholderById(3));
 
         //INSERT CARDHOLDER
@@ -32,23 +44,31 @@ public class Launcher {
 //        System.out.println(cDAO.insertCardholder(deshon));
 //        System.out.println(cDAO.insertCardholder(nicole));
 
-        //INSERT PAYMENT
-//        PaymentDAO pDAO = new PaymentDAO();
+        //UPDATE
+//        System.out.println(cDAO.updateName(500000, "Manager"));
+//        System.out.println(cDAO.getRoleById(1)); //checking if the Manager salary was updated
+
+        //-------- PAYMENT ----------
+        System.out.println("-------- PAYMENT ----------");
+
+
+//      PaymentDAO pDAO = new PaymentDAO();
+
+        //GET All PAYMENTS
+//        ArrayList<Payment> paymentList = pDAO.getAllPayments();
+//
+//        for(Payment p : paymentList){
+//            System.out.println(p);
+//        }
+
+        //INSERT PAYMENTS
 //        Payment deshonPay = new Payment("paid", "June 18th", 5);
 //        Payment nicolePay = new Payment("paid", "June 19th", 6);
 //        System.out.println(pDAO.insertPayment(deshonPay));
 //        System.out.println(pDAO.insertPayment(nicolePay));
 
         //UPDATE
-//        System.out.println(cDAO.updateRoleSalary(500000, "Manager"));
+//        System.out.println(cDAO.updateName(500000, "Manager"));
 //        System.out.println(cDAO.getRoleById(1)); //checking if the Manager salary was updated
-
-        //GET All CARDHOLDERS
-        ArrayList<Cardholder> cardholderList = cDAO.getAllCardholder();
-
-        for(Cardholder c : cardholderList){
-            System.out.println(c);
-        }
-
     }
 }

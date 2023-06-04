@@ -7,6 +7,7 @@ import java.sql.*;
 
 public class PaymentDAO implements PaymentDAOInterface{
 
+    //GET ALL PAYMENTS
     @Override
     public ArrayList<Payment> getAllPayments() {
 
