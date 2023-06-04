@@ -26,7 +26,7 @@ public class Launcher {
         System.out.println("-------- CARDHOLDER ----------");
 
 
-//      CardholderDAO cDAO = new CardholderDAO();
+      CardholderDAO cDAO = new CardholderDAO();
 
         //GET All CARDHOLDERS
 //        ArrayList<Cardholder> cardholderList = cDAO.getAllCardholder();
@@ -45,14 +45,14 @@ public class Launcher {
 //        System.out.println(cDAO.insertCardholder(nicole));
 
         //UPDATE
-//        System.out.println(cDAO.updateName(500000, "Manager"));
-//        System.out.println(cDAO.getRoleById(1)); //checking if the Manager salary was updated
+        System.out.println(cDAO.updateCardholder("Raven", "Brady"));
+        System.out.println(cDAO.getCardholderById(1));
 
         //-------- PAYMENT ----------
         System.out.println("-------- PAYMENT ----------");
 
 
-//      PaymentDAO pDAO = new PaymentDAO();
+      PaymentDAO pDAO = new PaymentDAO();
 
         //GET All PAYMENTS
 //        ArrayList<Payment> paymentList = pDAO.getAllPayments();
@@ -68,7 +68,7 @@ public class Launcher {
 //        System.out.println(pDAO.insertPayment(nicolePay));
 
         //UPDATE
-//        System.out.println(cDAO.updateName(500000, "Manager"));
-//        System.out.println(cDAO.getRoleById(1)); //checking if the Manager salary was updated
+        System.out.println(pDAO.updatePayment("Paid is now paid in full", "May 17th"));
+        System.out.println(pDAO.getPaymentById(1));
     }
 }

@@ -1,5 +1,6 @@
 package com.revature.daos;
 
+import com.revature.models.Cardholder;
 import com.revature.models.Payment;
 import com.revature.utils.ConnectionUtil;
 import java.util.ArrayList;
@@ -34,6 +35,33 @@ public class PaymentDAO implements PaymentDAOInterface{
 
         } catch(SQLException e){
             System.out.println("Failed to get all payment");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //SELECT BY ID
+    @Override
+    public Payment getPaymentById(int id) {
+
+        try(Connection conn = ConnectionUtil.getConnection()){
+            String sql = "SELECT * FROM payment WHERE payment_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()) {
+                return new Payment(
+                        rs.getInt("payment_id"),
+                        rs.getString("bill"),
+                        rs.getString("due_date"),
+                        rs.getInt("cardholder_id_fk")
+                );
+            }
+        } catch(SQLException e){
+            System.out.println("error getting Payment");
             e.printStackTrace();
         }
         return null;
