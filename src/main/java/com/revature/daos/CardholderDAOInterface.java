@@ -17,5 +17,6 @@ public interface CardholderDAOInterface {
     Cardholder insertCardholder(Cardholder ch);
 
     //UPDATE
-    boolean updateCardholder(String firstName, String lastName);
+    public boolean updateCardholder(String first_name, String last_name, int cardholder_id);
+
 }

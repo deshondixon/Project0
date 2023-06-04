@@ -45,8 +45,8 @@ public class Launcher {
 //        System.out.println(cDAO.insertCardholder(nicole));
 
         //UPDATE
-        System.out.println(cDAO.updateCardholder("Raven", "Brady"));
-        System.out.println(cDAO.getCardholderById(1));
+        System.out.println(cDAO.updateCardholder("Roy", "Howard", 5));
+        System.out.println(cDAO.getCardholderById(5));
 
         //-------- PAYMENT ----------
         System.out.println("-------- PAYMENT ----------");
@@ -67,8 +67,9 @@ public class Launcher {
 //        System.out.println(pDAO.insertPayment(deshonPay));
 //        System.out.println(pDAO.insertPayment(nicolePay));
 
-        //UPDATE
-        System.out.println(pDAO.updatePayment("Paid is now paid in full", "May 17th"));
-        System.out.println(pDAO.getPaymentById(1));
+//UPDATE
+        System.out.println(pDAO.updatePayment("Paid", "July 9th", 5));
+        System.out.println(pDAO.getPaymentById(5));
+
     }
 }

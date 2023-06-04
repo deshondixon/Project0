@@ -93,16 +93,17 @@ public class PaymentDAO implements PaymentDAOInterface{
 
     //UPDATE
     @Override
-    public boolean updatePayment(String bill, String due_date) {
+    public boolean updatePayment(String bill, String due_date, int payment_id) {
 
         try(Connection conn = ConnectionUtil.getConnection()){
 
-            String sql = "UPDATE payment SET bill = ?, due_due = ? WHERE payment_id = ?";
+            String sql = "UPDATE payment SET bill = ?, due_date = ? WHERE payment_id = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, bill);
             ps.setString(2, due_date);
+            ps.setInt(3, payment_id);
 
             ps.executeUpdate();
 
@@ -115,4 +116,5 @@ public class PaymentDAO implements PaymentDAOInterface{
 
         return false;
     }
+
 }
