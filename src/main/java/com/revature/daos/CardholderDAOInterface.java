@@ -1,10 +1,14 @@
 package com.revature.daos;
 
 import com.revature.models.Cardholder;
-import com.revature.models.Payment;
+
+import java.util.ArrayList;
 
 
 public interface CardholderDAOInterface {
+
+    //SELECT all CARDHOLDERS
+    ArrayList<Cardholder> getAllCardholder();
 
     //SELECT by ID
     Cardholder getCardholderById(int id);
@@ -12,6 +16,6 @@ public interface CardholderDAOInterface {
     //INSERT
     Cardholder insertCardholder(Cardholder ch);
 
-    //UPDATE Method
+    //UPDATE
 //    boolean updateName(String firstName, String lastName);
 }

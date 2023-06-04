@@ -3,10 +3,43 @@ package com.revature.daos;
 import com.revature.models.Cardholder;
 import com.revature.utils.ConnectionUtil;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class CardholderDAO implements CardholderDAOInterface{
 
-    //SELECT
+
+    //SELECT ALL
+    @Override
+    public ArrayList<Cardholder> getAllCardholder() {
+
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+            String sql = "SELECT * FROM cardholder";
+            Statement s = conn.createStatement();
+
+            ResultSet rs = s.executeQuery(sql);
+
+            ArrayList<Cardholder> cardholderList = new ArrayList<>();
+
+            CardholderDAO cDAO = new CardholderDAO();
+
+            while(rs.next()){
+                Cardholder cardholder = new Cardholder(
+                        rs.getInt("cardholder_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name")
+                );
+                cardholderList.add(cardholder);
+            }
+            return cardholderList;
+        } catch(SQLException e){
+            System.out.println("Failed to get all employees");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //SELECT BY ID
     @Override
     public Cardholder getCardholderById(int id) {
 
