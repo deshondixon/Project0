@@ -90,5 +90,28 @@ public class CardholderDAO implements CardholderDAOInterface{
     }
 
     //UPDATE
+    @Override
+    public boolean updateCardholder(String first_name, String last_name) {
+
+        try(Connection conn = ConnectionUtil.getConnection()){
+
+            String sql = "UPDATE cardholder SET first_name = ?, last_name = ? WHERE cardholder_id = ?";
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, first_name);
+            ps.setString(2, last_name);
+
+            ps.executeUpdate();
+
+            return true;
+
+        } catch(SQLException e){
+            System.out.println("Update failed!!");
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
 }
