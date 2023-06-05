@@ -20,15 +20,15 @@ public class Launcher {
         //-------CARDHOLDER----------
 
         app.get("/cardholders", controller::getAllCardholders);
-        app.get("/cardholders/:id", controller::getCardholderById);
+        app.get("/cardholders/{id}", controller::getCardholderById);
         app.post("/cardholders", controller::insertCardholder);
-        app.put("/cardholders/:id", controller::updateCardholder);
+        app.put("/cardholders/{id}", controller::updateCardholder);
 
         //-------PAYMENTS----------
 
         app.get("/payments", controller::getAllPayments);
         app.post("/payments", controller::insertPayment);
-        app.put("/payments/:id", controller::updatePayment);
+        app.put("/payments/{id}", controller::updatePayment);
     }
 }
 
