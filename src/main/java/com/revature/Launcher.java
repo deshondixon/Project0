@@ -5,19 +5,24 @@ import com.revature.daos.PaymentDAO;
 import com.revature.models.Cardholder;
 import com.revature.models.Payment;
 import com.revature.utils.ConnectionUtil;
-
+import io.javalin.Javalin;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Launcher {
     public static void main(String[] args) {
+
         try(Connection conn = ConnectionUtil.getConnection()){
             System.out.println("CONNECTION SUCCESSFUL :)");
         }
         catch(SQLException e){
             System.out.println("Connection Failed :(" );
         }
+
+        var app = Javalin.create(/*config*/)
+                .get("/", ctx -> ctx.result("Hello World"))
+                .start(7070);
 
 
         //------------------------------- DAO ---------------------------
