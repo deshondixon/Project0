@@ -17,7 +17,6 @@ public class Launcher {
 
         SampleController controller = new SampleController();
 
-
         //-------CARDHOLDER----------
 
         app.get("/cardholders", controller::getAllCardholders);
@@ -32,3 +31,4 @@ public class Launcher {
         app.put("/payments/:id", controller::updatePayment);
     }
 }
+
