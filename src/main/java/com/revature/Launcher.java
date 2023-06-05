@@ -1,5 +1,7 @@
 package com.revature;
 
+import com.revature.contollers.CardholderController;
+import com.revature.contollers.PaymentController;
 import com.revature.utils.ConnectionUtil;
 import io.javalin.Javalin;
 import java.sql.Connection;
@@ -15,20 +17,20 @@ public class Launcher {
 
         var app = Javalin.create().start(7070);
 
-        SampleController controller = new SampleController();
+        CardholderController cardholderController = new CardholderController();
+        PaymentController paymentController = new PaymentController();
 
         //-------CARDHOLDER----------
 
-        app.get("/cardholders", controller::getAllCardholders);
-        app.get("/cardholders/{id}", controller::getCardholderById);
-        app.post("/cardholders", controller::insertCardholder);
-        app.put("/cardholders/{id}", controller::updateCardholder);
+        app.get("/cardholders", cardholderController::getAllCardholders);
+        app.get("/cardholders/{id}", cardholderController::getCardholderById);
+        app.post("/cardholders", cardholderController::insertCardholder);
+        app.put("/cardholders/{id}", cardholderController::updateCardholder);
 
         //-------PAYMENTS----------
 
-        app.get("/payments", controller::getAllPayments);
-        app.post("/payments", controller::insertPayment);
-        app.put("/payments/{id}", controller::updatePayment);
+        app.get("/payments", paymentController::getAllPayments);
+        app.post("/payments", paymentController::insertPayment);
+        app.put("/payments/{id}", paymentController::updatePayment);
     }
 }
-
