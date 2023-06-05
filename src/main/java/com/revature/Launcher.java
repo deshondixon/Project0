@@ -31,7 +31,7 @@ public class Launcher {
         System.out.println("-------- CARDHOLDER ----------");
 
 
-      CardholderDAO cDAO = new CardholderDAO();
+//      CardholderDAO cDAO = new CardholderDAO();
 
         //GET All CARDHOLDERS
 //        ArrayList<Cardholder> cardholderList = cDAO.getAllCardholder();
@@ -50,14 +50,14 @@ public class Launcher {
 //        System.out.println(cDAO.insertCardholder(nicole));
 
         //UPDATE
-        System.out.println(cDAO.updateCardholder("Anthony", "Martin", 5));
-        System.out.println(cDAO.getCardholderById(5));
+//        System.out.println(cDAO.updateCardholder("Anthony", "Martin", 5));
+//        System.out.println(cDAO.getCardholderById(5));
 
         //-------- PAYMENT ----------
         System.out.println("-------- PAYMENT ----------");
 
 
-      PaymentDAO pDAO = new PaymentDAO();
+//      PaymentDAO pDAO = new PaymentDAO();
 
         //GET All PAYMENTS
 //        ArrayList<Payment> paymentList = pDAO.getAllPayments();
@@ -73,8 +73,8 @@ public class Launcher {
 //        System.out.println(pDAO.insertPayment(nicolePay));
 
 //UPDATE
-        System.out.println(pDAO.updatePayment("Paid", "July 11th", 5));
-        System.out.println(pDAO.getPaymentById(5));
+//        System.out.println(pDAO.updatePayment("Paid", "July 11th", 5));
+//        System.out.println(pDAO.getPaymentById(5));
 
     }
 }
