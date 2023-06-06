@@ -16,13 +16,13 @@ public class JavalinAppConfig {
 
     private final Gson gson = new GsonBuilder().create();
     private final JsonMapper gsonMapper = new JsonMapper() {
-        @NotNull
+
         @Override
         public String toJsonString(@NotNull Object obj, @NotNull Type type) {
             return gson.toJson(obj, type);
         }
 
-        @NotNull
+
         @Override
         public <T> T fromJsonString(@NotNull String json, @NotNull Type targetType) {
             return gson.fromJson(json, targetType);
