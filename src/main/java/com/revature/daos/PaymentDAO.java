@@ -1,18 +1,18 @@
 package com.revature.daos;
 
-import com.revature.models.Cardholder;
 import com.revature.models.Payment;
 import com.revature.utils.ConnectionUtil;
-import java.util.ArrayList;
-import java.sql.*;
 
-public class PaymentDAO implements PaymentDAOInterface{
+import java.sql.*;
+import java.util.ArrayList;
+
+public class PaymentDAO implements PaymentDAOInterface {
 
     //GET ALL PAYMENTS
     @Override
     public ArrayList<Payment> getAllPayments() {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "SELECT * FROM payment";
             Statement s = conn.createStatement();
@@ -22,7 +22,7 @@ public class PaymentDAO implements PaymentDAOInterface{
 
             CardholderDAO cDAO = new CardholderDAO();
 
-            while(rs.next()){
+            while (rs.next()) {
                 Payment payment = new Payment(
                         rs.getInt("payment_id"),
                         rs.getString("bill"),
@@ -33,7 +33,7 @@ public class PaymentDAO implements PaymentDAOInterface{
             }
             return paymentList;
 
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Failed to get all payment");
             e.printStackTrace();
         }
@@ -44,7 +44,7 @@ public class PaymentDAO implements PaymentDAOInterface{
     @Override
     public Payment getPaymentById(int id) {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "SELECT * FROM payment WHERE payment_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -52,7 +52,7 @@ public class PaymentDAO implements PaymentDAOInterface{
 
             ResultSet rs = ps.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 return new Payment(
                         rs.getInt("payment_id"),
                         rs.getString("bill"),
@@ -60,7 +60,7 @@ public class PaymentDAO implements PaymentDAOInterface{
                         rs.getInt("cardholder_id_fk")
                 );
             }
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("error getting Payment");
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class PaymentDAO implements PaymentDAOInterface{
     @Override
     public Payment insertPayment(Payment pay) {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "INSERT INTO payment (bill, due_date, cardholder_id_fk) VALUES (?, ?, ?)";
 
@@ -84,7 +84,7 @@ public class PaymentDAO implements PaymentDAOInterface{
 
             return pay;
 
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Insert payment failed!");
             e.printStackTrace();
         }
@@ -95,7 +95,7 @@ public class PaymentDAO implements PaymentDAOInterface{
     @Override
     public boolean updatePayment(String bill, String due_date, int payment_id) {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "UPDATE payment SET bill = ?, due_date = ? WHERE payment_id = ?";
 
@@ -109,7 +109,7 @@ public class PaymentDAO implements PaymentDAOInterface{
 
             return true;
 
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Update failed!!");
             e.printStackTrace();
         }

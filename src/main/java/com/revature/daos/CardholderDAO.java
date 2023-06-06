@@ -2,17 +2,18 @@ package com.revature.daos;
 
 import com.revature.models.Cardholder;
 import com.revature.utils.ConnectionUtil;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CardholderDAO implements CardholderDAOInterface{
+public class CardholderDAO implements CardholderDAOInterface {
 
 
     //SELECT ALL
     @Override
     public ArrayList<Cardholder> getAllCardholder() {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "SELECT * FROM cardholder";
             Statement s = conn.createStatement();
@@ -21,9 +22,8 @@ public class CardholderDAO implements CardholderDAOInterface{
 
             ArrayList<Cardholder> cardholderList = new ArrayList<>();
 
-            CardholderDAO cDAO = new CardholderDAO();
 
-            while(rs.next()){
+            while (rs.next()) {
                 Cardholder cardholder = new Cardholder(
                         rs.getInt("cardholder_id"),
                         rs.getString("first_name"),
@@ -32,7 +32,7 @@ public class CardholderDAO implements CardholderDAOInterface{
                 cardholderList.add(cardholder);
             }
             return cardholderList;
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Failed to get all employees");
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class CardholderDAO implements CardholderDAOInterface{
     @Override
     public Cardholder getCardholderById(int id) {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "SELECT * FROM cardholder WHERE cardholder_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -51,14 +51,14 @@ public class CardholderDAO implements CardholderDAOInterface{
 
             ResultSet rs = ps.executeQuery();
 
-            if(rs.next()) {
+            if (rs.next()) {
                 return new Cardholder(
                         rs.getInt("cardholder_id"),
                         rs.getString("first_name"),
                         rs.getString("last_name")
                 );
             }
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("error getting Cardholder");
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class CardholderDAO implements CardholderDAOInterface{
     @Override
     public Cardholder insertCardholder(Cardholder ch) {
 
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
 
             String sql = "INSERT INTO cardholder (first_name, last_name) VALUES (?, ?)";
 
@@ -82,7 +82,7 @@ public class CardholderDAO implements CardholderDAOInterface{
 
             return ch;
 
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Insert cardholder failed!");
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class CardholderDAO implements CardholderDAOInterface{
     //UPDATE
     @Override
     public boolean updateCardholder(String first_name, String last_name, int cardholder_id) {
-        try(Connection conn = ConnectionUtil.getConnection()){
+        try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "UPDATE cardholder SET first_name = ?, last_name = ? WHERE cardholder_id = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -104,7 +104,7 @@ public class CardholderDAO implements CardholderDAOInterface{
             ps.executeUpdate();
 
             return true;
-        } catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Update failed!!");
             e.printStackTrace();
         }
