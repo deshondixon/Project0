@@ -10,14 +10,17 @@ public class CardholderService {
     private final CardholderDAO cardholderDAO = new CardholderDAO();
 
     public ArrayList<Cardholder> getAllCardholders() {
+
         return cardholderDAO.getAllCardholder();
     }
 
     public Cardholder getCardholderById(int id) {
+
         return cardholderDAO.getCardholderById(id);
     }
 
     public Cardholder insertCardholder(Cardholder cardholder) {
+
         return cardholderDAO.insertCardholder(cardholder);
     }
 
