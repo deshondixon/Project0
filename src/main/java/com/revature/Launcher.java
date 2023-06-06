@@ -13,8 +13,8 @@ public class Launcher {
             System.out.println("Connection Failed :(");
         }
 
+        JavalinAppConfig app = new JavalinAppConfig();
 
-        JavalinAppConfig appConfig = new JavalinAppConfig();
-        appConfig.start(7070);
+        app.start(7070);
     }
 }
