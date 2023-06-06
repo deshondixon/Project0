@@ -1,3 +1,5 @@
+package com.revature.controllers;
+
 import com.revature.service.PaymentService;
 import com.revature.models.Payment;
 import io.javalin.http.Context;
