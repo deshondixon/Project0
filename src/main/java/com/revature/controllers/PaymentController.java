@@ -1,4 +1,4 @@
-package com.revature.contollers;
+package com.revature.controllers;
 
 import com.revature.daos.PaymentDAO;
 import com.revature.models.Payment;

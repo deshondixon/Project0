@@ -1,4 +1,4 @@
-package com.revature.contollers;
+package com.revature.controllers;
 
 import com.revature.daos.CardholderDAO;
 import com.revature.models.Cardholder;
