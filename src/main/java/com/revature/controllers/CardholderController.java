@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class CardholderController {
 
-    private final CardholderService cardholderService = new CardholderService();
+    private static final CardholderService cardholderService = new CardholderService();
 
     public void getAllCardholders(Context ctx) {
         ArrayList<Cardholder> cardholderList = cardholderService.getAllCardholders();
