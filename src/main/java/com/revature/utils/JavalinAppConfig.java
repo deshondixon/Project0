@@ -2,23 +2,27 @@ package com.revature.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.revature.controllers.PaymentController;
 import com.revature.controllers.CardholderController;
+import com.revature.controllers.PaymentController;
 import io.javalin.Javalin;
 import io.javalin.json.JsonMapper;
-import io.javalin.apibuilder.ApiBuilder.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
+
+import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class JavalinAppConfig {
 
     private final Gson gson = new GsonBuilder().create();
     private final JsonMapper gsonMapper = new JsonMapper() {
+        @NotNull
         @Override
         public String toJsonString(@NotNull Object obj, @NotNull Type type) {
             return gson.toJson(obj, type);
         }
 
+        @NotNull
         @Override
         public <T> T fromJsonString(@NotNull String json, @NotNull Type targetType) {
             return gson.fromJson(json, targetType);
@@ -28,7 +32,7 @@ public class JavalinAppConfig {
     private final PaymentController paymentController = new PaymentController();
     private final CardholderController cardholderController = new CardholderController();
 
-    private Javalin app = Javalin.create(config -> config.jsonMapper(gsonMapper))
+    private final Javalin app = Javalin.create(config -> config.jsonMapper(gsonMapper))
             .routes(() -> {
 
                 path("payments", () -> {
@@ -46,7 +50,7 @@ public class JavalinAppConfig {
                 });
             });
 
-    public void start(int port){
+    public void start(int port) {
         app.start(port);
     }
 }
