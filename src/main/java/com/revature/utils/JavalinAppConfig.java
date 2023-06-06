@@ -37,6 +37,7 @@ public class JavalinAppConfig {
 
                 path("payments", () -> {
                     get(paymentController::getAllPayments);
+                    get("{id}", paymentController::getPaymentById);
                     post(paymentController::insertPayment);
                     put("{id}", paymentController::updatePayment);
                     delete("{id}", paymentController::deletePayment);

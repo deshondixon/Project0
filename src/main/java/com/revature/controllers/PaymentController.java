@@ -14,6 +14,17 @@ public class PaymentController {
         ctx.json(paymentList);
     }
 
+    public void getPaymentById(Context ctx) {
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        Payment payment = paymentService.getPaymentById(id);
+        if (payment != null) {
+            ctx.status(200);
+            ctx.json(payment);
+        } else {
+            ctx.status(404);
+        }
+    }
+
     public void insertPayment(Context ctx) {
         Payment payment = ctx.bodyAsClass(Payment.class);
         Payment insertedPayment = paymentService.insertPayment(payment);

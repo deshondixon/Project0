@@ -1,13 +1,14 @@
 package com.revature.service;
 
 import com.revature.daos.CardholderDAO;
+import com.revature.daos.CardholderDAOInterface;
 import com.revature.models.Cardholder;
 
 import java.util.ArrayList;
 
 public class CardholderService {
 
-    private final CardholderDAO cardholderDAO = new CardholderDAO();
+    private final CardholderDAOInterface cardholderDAO = new CardholderDAO();
 
     public ArrayList<Cardholder> getAllCardholders() {
 
