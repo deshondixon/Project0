@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class CardholderService {
 
-    private CardholderDAO cardholderDAO = new CardholderDAO();
+    private final CardholderDAO cardholderDAO = new CardholderDAO();
 
     public ArrayList<Cardholder> getAllCardholders() {
         return cardholderDAO.getAllCardholder();

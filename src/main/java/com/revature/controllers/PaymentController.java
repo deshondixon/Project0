@@ -7,7 +7,7 @@ import io.javalin.http.Context;
 import java.util.ArrayList;
 
 public class PaymentController {
-    private PaymentService paymentService = new PaymentService();
+    private final PaymentService paymentService = new PaymentService();
 
     public void getAllPayments(Context ctx) {
         ArrayList<Payment> paymentList = paymentService.getAllPayments();
