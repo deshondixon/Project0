@@ -32,5 +32,6 @@ public class Launcher {
         app.get("/payments", paymentController::getAllPayments);
         app.post("/payments", paymentController::insertPayment);
         app.put("/payments/{id}", paymentController::updatePayment);
+        app.delete("/payments/{id}", paymentController::deletePayment);
     }
 }

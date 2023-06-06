@@ -26,4 +26,10 @@ public class PaymentController {
         paymentDAO.updatePayment(payment.getBill(), payment.getDueDate(), id);
         ctx.status(200);
     }
+
+    public void deletePayment(Context ctx) {
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        paymentDAO.deletePayment(id);
+        ctx.status(204);
+    }
 }

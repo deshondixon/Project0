@@ -117,4 +117,22 @@ public class PaymentDAO implements PaymentDAOInterface{
         return false;
     }
 
+    @Override
+    public boolean deletePayment(int id) {
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            String sql = "DELETE FROM payment WHERE payment_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Failed to delete payment!");
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }
