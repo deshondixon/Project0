@@ -38,15 +38,15 @@ public class JavalinAppConfig {
                 path("payments", () -> {
                     get(paymentController::getAllPayments);
                     post(paymentController::insertPayment);
-                    put(":id", paymentController::updatePayment);
-                    delete(":id", paymentController::deletePayment);
+                    put("{id}", paymentController::updatePayment);
+                    delete("{id}", paymentController::deletePayment);
                 });
 
                 path("cardholders", () -> {
                     get(cardholderController::getAllCardholders);
-                    get(":id", cardholderController::getCardholderById);
+                    get("{id}", cardholderController::getCardholderById);
                     post(cardholderController::insertCardholder);
-                    put(":id", cardholderController::updateCardholder);
+                    put("{id}", cardholderController::updateCardholder);
                 });
             });
 
