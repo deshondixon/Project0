@@ -91,7 +91,7 @@ public class CardholderDAO implements CardholderDAOInterface {
 
     //UPDATE
     @Override
-    public boolean updateCardholder(String first_name, String last_name, int cardholder_id) {
+    public boolean updateCardholder(String first_name, String last_name, int id) {
         try (Connection conn = ConnectionUtil.getConnection()) {
             String sql = "UPDATE cardholder SET first_name = ?, last_name = ? WHERE cardholder_id = ?";
 
@@ -99,7 +99,7 @@ public class CardholderDAO implements CardholderDAOInterface {
 
             ps.setString(1, first_name);
             ps.setString(2, last_name);
-            ps.setInt(3, cardholder_id);
+            ps.setInt(3, id);
 
             ps.executeUpdate();
 
@@ -110,5 +110,21 @@ public class CardholderDAO implements CardholderDAOInterface {
         }
         return false;
     }
+
+    @Override
+    public boolean deleteCardholder(int id) {
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            String sql = "DELETE FROM cardholder WHERE cardholder_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            System.out.println("Delete failed!");
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

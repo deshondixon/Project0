@@ -28,4 +28,10 @@ public class CardholderService {
     public boolean updateCardholder(Cardholder cardholder, int id) {
         return cardholderDAO.updateCardholder(cardholder.getFirstName(), cardholder.getLastName(), id);
     }
+
+    public boolean deleteCardholder(int id) {
+        return cardholderDAO.deleteCardholder(id);
+    }
+
+
 }

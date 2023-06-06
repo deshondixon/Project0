@@ -3,6 +3,7 @@ package com.revature.controllers;
 import com.revature.models.Cardholder;
 import com.revature.service.CardholderService;
 import io.javalin.http.Context;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -32,15 +33,25 @@ public class CardholderController {
         }
     }
 
-    public void updateCardholder(Context ctx) {
+    public void updateCardholder(@NotNull Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
         Cardholder cardholder = ctx.bodyAsClass(Cardholder.class);
-        boolean updated = cardholderService.updateCardholder(cardholder, id);
-        if (updated) {
-            ctx.status(200);
-            ctx.json(cardholder);
+        if (cardholderService.updateCardholder(cardholder, id)) {
+            ctx.status(204);
         } else {
-            ctx.status(400);
+            ctx.status(404);
         }
     }
+
+    public void deleteCardholder(Context ctx) {
+        int id = Integer.parseInt(ctx.pathParam("id"));
+        if (cardholderService.deleteCardholder(id)) {
+            ctx.status(204);
+        } else {
+            ctx.status(404);
+        }
+    }
+
+
+
 }

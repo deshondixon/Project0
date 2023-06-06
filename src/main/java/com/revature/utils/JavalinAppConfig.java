@@ -50,6 +50,7 @@ public class JavalinAppConfig {
                     get("{id}", cardholderController::getCardholderById);
                     post(cardholderController::insertCardholder);
                     put("{id}", cardholderController::updateCardholder);
+                    delete("{id}", cardholderController::deleteCardholder);
                 });
             });
 
