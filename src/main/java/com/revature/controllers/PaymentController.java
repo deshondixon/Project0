@@ -2,11 +2,15 @@ package com.revature.controllers;
 
 import com.revature.service.PaymentService;
 import com.revature.models.Payment;
+import com.revature.utils.JavalinAppConfig;
 import io.javalin.http.Context;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 public class PaymentController {
+    private static final Logger logger = LoggerFactory.getLogger(JavalinAppConfig.class);
     private static final PaymentService paymentService = new PaymentService();
 
     public void getAllPayments(Context ctx) {

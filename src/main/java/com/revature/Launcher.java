@@ -7,6 +7,6 @@ public class Launcher {
 
         JavalinAppConfig app = new JavalinAppConfig();
 
-        app.start(8080);
+        app.start(7070);
     }
 }

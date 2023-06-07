@@ -2,13 +2,17 @@ package com.revature.controllers;
 
 import com.revature.models.Cardholder;
 import com.revature.service.CardholderService;
+import com.revature.utils.JavalinAppConfig;
 import io.javalin.http.Context;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
 public class CardholderController {
 
+    private static final Logger logger = LoggerFactory.getLogger(JavalinAppConfig.class);
     private static final CardholderService cardholderService = new CardholderService();
 
     public void getAllCardholders(Context ctx) {
