@@ -7,6 +7,8 @@ import com.revature.controllers.PaymentController;
 import io.javalin.Javalin;
 import io.javalin.json.JsonMapper;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Type;
 
@@ -31,10 +33,16 @@ public class JavalinAppConfig {
         }
     };
 
+    private static final Logger logger = LoggerFactory.getLogger(JavalinAppConfig.class);
+
     private final PaymentController paymentController = new PaymentController();
     private final CardholderController cardholderController = new CardholderController();
 
     private final Javalin app = Javalin.create(config -> config.jsonMapper(gsonMapper))
+            .before(ctx -> {
+                logger.info("Testing out logger");
+            })
+
             .routes(() -> {
 
                 path("payments", () -> {
