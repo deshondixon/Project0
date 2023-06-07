@@ -40,7 +40,7 @@ public class JavalinAppConfig {
 
     private final Javalin app = Javalin.create(config -> config.jsonMapper(gsonMapper))
             .before(ctx -> {
-                logger.info("Testing out logger");
+                logger.info(ctx.method() + " Request was sent to path: " + ctx.fullUrl());
             })
 
             .routes(() -> {
