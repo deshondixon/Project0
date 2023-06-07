@@ -33,15 +33,7 @@ public class CardholderController {
         }
     }
 
-    public void updateCardholder(@NotNull Context ctx) {
-        int id = Integer.parseInt(ctx.pathParam("id"));
-        Cardholder cardholder = ctx.bodyAsClass(Cardholder.class);
-        if (cardholderService.updateCardholder(cardholder, id)) {
-            ctx.status(204);
-        } else {
-            ctx.status(404);
-        }
-    }
+
 
     public void deleteCardholder(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
