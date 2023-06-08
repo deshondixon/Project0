@@ -1,9 +1,11 @@
 package com.revature.utils;
 
 
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 
 public class ConnectionUtil {
@@ -19,6 +21,8 @@ public class ConnectionUtil {
 //        String username = "postgres";
 //        String password = "password";
 
+        Properties prop = new Properties();
+        prop.load(new FileReader("src/main/resources/application.properties"));
 
         return DriverManager.getConnection(url, username, password);
     }
