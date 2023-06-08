@@ -15,9 +15,11 @@ public class ConnectionUtil {
             e.printStackTrace();
             System.out.println("problem occurred locating driver");
         }
-        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project0";
-        String username = "postgres";
-        String password = "password";
+//        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project0";
+//        String username = "postgres";
+//        String password = "password";
+
+
         return DriverManager.getConnection(url, username, password);
     }
 }
