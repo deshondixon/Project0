@@ -18,6 +18,7 @@ public class ConnectionUtil {
             System.out.println("problem occurred locating driver");
         }
 
+
         Properties prop = new Properties();
         prop.load(new FileReader("src/main/resources/application.properties"));
 
