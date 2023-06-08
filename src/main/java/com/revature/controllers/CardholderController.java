@@ -42,6 +42,7 @@ public class CardholderController {
         Cardholder cardholder = ctx.bodyAsClass(Cardholder.class);
         if (cardholderService.updateCardholder(cardholder, id)) {
             ctx.status(204);
+            ctx.result("Cardholder updated successfully");
         } else {
             ctx.status(404);
         }
@@ -51,6 +52,7 @@ public class CardholderController {
         int id = Integer.parseInt(ctx.pathParam("id"));
         if (cardholderService.deleteCardholder(id)) {
             ctx.status(204);
+            ctx.result("Cardholder deleted successfully");
         } else {
             ctx.status(404);
         }
