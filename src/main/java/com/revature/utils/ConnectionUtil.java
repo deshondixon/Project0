@@ -17,9 +17,12 @@ public class ConnectionUtil {
             e.printStackTrace();
             System.out.println("problem occurred locating driver");
         }
+        String url = "";
+        String username = "";
+        String password = "";
 
-
-        Properties prop = new Properties();
+        try {
+        Properties prop = new Properties();}
         prop.load(new FileReader("src/main/resources/application.properties"));
 
         return DriverManager.getConnection(url, username, password);
