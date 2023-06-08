@@ -39,4 +39,4 @@ build/
 
 log.txt
 
-src/main/resources/application.properties
+.env

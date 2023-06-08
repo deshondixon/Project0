@@ -29,9 +29,9 @@ public class ConnectionUtil {
 
         Properties prop = new Properties();
 
-        String url = "";
-        String username = "";
-        String password = "";
+        String url = " ";
+        String username = " ";
+        String password = " ";
 
         try {
             prop.load(new FileReader("src/main/resources/application.properties"));
