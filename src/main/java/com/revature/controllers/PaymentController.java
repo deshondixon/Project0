@@ -56,7 +56,7 @@ public class PaymentController {
         int id = Integer.parseInt(ctx.pathParam("id"));
         boolean deleted = paymentService.deletePayment(id);
         if (deleted) {
-            ctx.status(204);
+            ctx.status(200);
             ctx.result("Payment deleted successfully");
         } else {
             ctx.status(400);

@@ -41,7 +41,7 @@ public class CardholderController {
         int id = Integer.parseInt(ctx.pathParam("id"));
         Cardholder cardholder = ctx.bodyAsClass(Cardholder.class);
         if (cardholderService.updateCardholder(cardholder, id)) {
-            ctx.status(204);
+            ctx.status(200);
             ctx.result("Cardholder updated successfully");
         } else {
             ctx.status(404);
