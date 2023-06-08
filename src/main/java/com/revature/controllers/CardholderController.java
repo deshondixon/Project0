@@ -51,7 +51,7 @@ public class CardholderController {
     public void deleteCardholder(Context ctx) {
         int id = Integer.parseInt(ctx.pathParam("id"));
         if (cardholderService.deleteCardholder(id)) {
-            ctx.status(204);
+            ctx.status(200);
             ctx.result("Cardholder deleted successfully");
         } else {
             ctx.status(404);
