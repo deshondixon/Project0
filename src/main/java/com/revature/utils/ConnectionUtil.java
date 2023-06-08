@@ -1,11 +1,9 @@
 package com.revature.utils;
 
-import java.io.FileReader;
-import java.io.IOException;
+import io.github.cdimascio.dotenv.Dotenv;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class ConnectionUtil {
     private static Connection conn = null;
@@ -27,27 +25,15 @@ public class ConnectionUtil {
             System.out.println("problem occurred locating driver");
         }
 
-        Properties prop = new Properties();
+        Dotenv dotenv = Dotenv.load();
 
-        String url = " ";
-        String username = " ";
-        String password = " ";
+        String url = dotenv.get("DB_URL");
+        String username = dotenv.get("DB_USERNAME");
+        String password = dotenv.get("DB_PASSWORD");
 
-        try {
-            prop.load(new FileReader("src/main/resources/application.properties"));
-
-            url = prop.getProperty("url");
-            username = prop.getProperty("username");
-            password = prop.getProperty("password");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        assert url != null;
         conn = DriverManager.getConnection(url, username, password);
 
-
         return conn;
-
     }
-
 }
