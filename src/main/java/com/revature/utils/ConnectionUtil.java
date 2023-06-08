@@ -17,9 +17,6 @@ public class ConnectionUtil {
             e.printStackTrace();
             System.out.println("problem occurred locating driver");
         }
-//        String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=project0";
-//        String username = "postgres";
-//        String password = "password";
 
         Properties prop = new Properties();
         prop.load(new FileReader("src/main/resources/application.properties"));
