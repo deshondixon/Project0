@@ -19,7 +19,7 @@
         <append>true</append>
     </appender>
 
-    <root>
+    <root level="info">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
