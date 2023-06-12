@@ -7,6 +7,7 @@ import com.revature.models.Payment;
 import java.util.ArrayList;
 
 public class PaymentService {
+
     private final PaymentDAOInterface paymentDAO = new PaymentDAO();
 
     public ArrayList<Payment> getAllPayments() {

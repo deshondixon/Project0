@@ -8,7 +8,11 @@ import java.util.ArrayList;
 
 public class CardholderService {
 
-    private final CardholderDAOInterface cardholderDAO = new CardholderDAO();
+    private CardholderDAOInterface cardholderDAO = new CardholderDAO();
+
+    public CardholderService() {
+    }
+
 
     public ArrayList<Cardholder> getAllCardholders() {
 
